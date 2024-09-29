@@ -10,6 +10,3 @@ echo "Copying settings..."
 cp -r .config ~/
 cp -r .bashrc ~/
 cp -r .vimrc ~/
-
-echo "Volume 100%..."
-pamixer --set-volume 100
