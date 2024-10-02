@@ -9,7 +9,7 @@ endif
 "========================================================
 call plug#begin('~/.vim/bundle')
 "--------------------------------------------------------
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'itchyny/lightline.vim'
@@ -38,7 +38,7 @@ set wrap linebreak nolist
 set textwidth=80
 
 "autocmd vimenter * NERDTree
-nmap <F6> :NERDTreeToggle<CR>
+"nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :PlugUpdate<CR>
 
 map <F2> <Esc>:w<CR>
@@ -50,6 +50,19 @@ map <silent> <C-h> :call WinMove('h')<CR>
 map <silent> <C-j> :call WinMove('j')<CR>
 map <silent> <C-k> :call WinMove('k')<CR>
 map <silent> <C-l> :call WinMove('l')<CR>
+
+function! InsertTabWrapper(direction)
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    elseif "backward" == a:direction
+        return "\<c-p>"
+    else
+        return "\<c-n>"
+    endif
+ endfunction
+ inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
+ inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 
 set wildmenu
 set wcm=<Tab>
