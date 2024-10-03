@@ -9,7 +9,7 @@ endif
 "========================================================
 call plug#begin('~/.vim/bundle')
 "--------------------------------------------------------
-"Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'itchyny/lightline.vim'
@@ -38,7 +38,7 @@ set wrap linebreak nolist
 set textwidth=80
 
 "autocmd vimenter * NERDTree
-"nmap <F6> :NERDTreeToggle<CR>
+nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :PlugUpdate<CR>
 
 map <F2> <Esc>:w<CR>
@@ -107,7 +107,7 @@ function! WinMove(key)
 endfunction
 
 "Не в список плагинов
-"let c_syntax_for_h=""
+let c_syntax_for_h=""
 "let g:airline_powerline_fonts = 1 "Включить поддержку Powerline шрифтов
 "let g:airline#extensions#keymap#enabled = 0 "Не показывать текущий маппинг
 "let g:airline_section_z = "\ue0a1:%l/%L Col:%c" "Кастомная графа положения курсора
